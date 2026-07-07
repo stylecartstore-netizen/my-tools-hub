@@ -1,33 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BMI Calculator</title>
-    <style>
-        body { font-family: sans-serif; text-align: center; padding: 50px; background-color: #f4f4f9; }
-        input { padding: 10px; margin: 10px; width: 80%; max-width: 300px; display: block; margin-left: auto; margin-right: auto; }
-        button { padding: 10px 20px; background: #ff6600; color: white; border: none; cursor: pointer; border-radius: 5px; }
-    </style>
 </head>
 <body>
-    <h2>BMI Calculator</h2>
-    <input type="number" id="weight" placeholder="Weight (kg)">
-    <input type="number" id="height" placeholder="Height (cm)">
-    <button onclick="calculate()">Calculate BMI</button>
-    <h3 id="result"></h3>
-
+    <h1>BMI Calculator</h1>
+    <input type="number" id="w" placeholder="Weight (kg)">
+    <input type="number" id="h" placeholder="Height (cm)">
+    <button onclick="calc()">Calculate</button>
+    <h2 id="res"></h2>
     <script>
-        function calculate() {
-            let w = document.getElementById('weight').value;
-            let h = document.getElementById('height').value / 100;
-            if(w > 0 && h > 0) {
-                let bmi = (w / (h * h)).toFixed(1);
-                document.getElementById('result').innerText = "Your BMI is: " + bmi;
-            } else {
-                document.getElementById('result').innerText = "Please enter valid numbers!";
-            }
+        function calc() {
+            let w = document.getElementById('w').value;
+            let h = document.getElementById('h').value / 100;
+            document.getElementById('res').innerText = "BMI: " + (w / (h * h)).toFixed(1);
         }
     </script>
 </body>
 </html>
+
