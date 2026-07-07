@@ -1,7 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>BMI Calculator</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 50px; }
+        input { padding: 10px; margin: 5px; width: 200px; display: block; margin-left: auto; margin-right: auto; }
+        button { padding: 10px 20px; margin-top: 10px; cursor: pointer; }
+    </style>
 </head>
 <body>
     <h1>BMI Calculator</h1>
@@ -9,12 +15,21 @@
     <input type="number" id="h" placeholder="Height (cm)">
     <button onclick="calc()">Calculate</button>
     <h2 id="res"></h2>
+
     <script>
         function calc() {
             let w = document.getElementById('w').value;
-            let h = document.getElementById('h').value / 100;
-            let bmi = (w / (h * h)).toFixed(1);
-            document.getElementById('res').innerText = "Your BMI is: " + bmi;
+            let h_cm = document.getElementById('h').value;
+            
+            // Height ko cm se meter mein convert kiya (h / 100)
+            let h = h_cm / 100;
+
+            if (w > 0 && h > 0) {
+                let bmi = (w / (h * h)).toFixed(1);
+                document.getElementById('res').innerText = "Your BMI is: " + bmi;
+            } else {
+                document.getElementById('res').innerText = "Please enter valid values!";
+            }
         }
     </script>
 </body>
