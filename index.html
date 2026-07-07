@@ -2,30 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Tools Hub</title>
+    <title>BMI Calculator</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; text-align: center; background-color: #f4f4f9; padding: 20px; }
-        .container { max-width: 400px; margin: auto; }
-        .btn { display: block; width: 100%; padding: 15px; margin: 12px 0; background-color: #007bff; color: white; text-decoration: none; border-radius: 10px; font-weight: bold; transition: 0.3s; }
-        .btn:hover { background-color: #0056b3; }
-        h1 { color: #333; margin-bottom: 10px; }
-        p { color: #666; margin-bottom: 20px; }
+        body { font-family: sans-serif; text-align: center; padding: 20px; }
+        input { padding: 10px; margin: 5px; width: 80%; }
+        button { padding: 10px 20px; background: #ff6600; color: white; border: none; cursor: pointer; }
     </style>
 </head>
 <body>
+    <h2>BMI Calculator</h2>
+    <input type="number" id="weight" placeholder="Weight (kg)">
+    <input type="number" id="height" placeholder="Height (cm)">
+    <button onclick="calculate()">Calculate</button>
+    <h3 id="result"></h3>
 
-<div class="container">
-    <h1>My Tools Hub</h1>
-    <p>Sabse useful tools ek hi jagah!</p>
-    
-    <!-- Yahan apne tools ke link dalein -->
-    <a href="https://lustrous-blancmange-d29b98.netlify.app" class="btn">QR Code Generator</a>
-    <a href="#" class="btn">BMI Calculator</a>
-    <a href="#" class="btn">Text Converter</a>
-    <a href="#" class="btn">Aur Naye Tools...</a>
-</div>
-
+    <script>
+        function calculate() {
+            let w = document.getElementById('weight').value;
+            let h = document.getElementById('height').value / 100;
+            let bmi = (w / (h * h)).toFixed(1);
+            document.getElementById('result').innerText = "Your BMI is: " + bmi;
+        }
+    </script>
 </body>
 </html>
-
