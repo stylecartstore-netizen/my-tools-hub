@@ -13,9 +13,9 @@
         function calc() {
             let w = document.getElementById('w').value;
             let h = document.getElementById('h').value / 100;
-            document.getElementById('res').innerText = "BMI: " + (w / (h * h)).toFixed(1);
+            let bmi = (w / (h * h)).toFixed(1);
+            document.getElementById('res').innerText = "Your BMI is: " + bmi;
         }
     </script>
 </body>
 </html>
-
