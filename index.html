@@ -1,22 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>My Tools Hub</title>
-    <style>
-        body { font-family: sans-serif; text-align: center; padding: 20px; }
-        .container { max-width: 400px; margin: auto; }
-        .btn { display: block; width: 100%; padding: 10px; margin: 10px 0; background: #ff6600; color: white; text-decoration: none; border-radius: 5px; }
-    </style>
+    <title>BMI Calculator</title>
 </head>
 <body>
-    <div class="container">
-        <h1>My Tools Hub</h1>
-        <p>Sabse useful tools ek hi jagah!</p>
-        <a href="https://lustrous-blancmange-d29b98.netlify.app" class="btn">QR Code Generator</a>
-        <a href="bmi.html" class="btn">BMI Calculator</a>
-        <a href="#" class="btn">Text Converter</a>
-    </div>
+    <h1>BMI Calculator</h1>
+    <input type="number" id="w" placeholder="Weight (kg)">
+    <input type="number" id="h" placeholder="Height (cm)">
+    <button onclick="calc()">Calculate</button>
+    <h2 id="res"></h2>
+    
+    <script>
+        function calc() {
+            let w = parseFloat(document.getElementById('w').value);
+            let h = parseFloat(document.getElementById('h').value) / 100;
+            if (w > 0 && h > 0) {
+                let bmi = (w / (h * h)).toFixed(1);
+                document.getElementById('res').innerText = "Your BMI is: " + bmi;
+            } else {
+                document.getElementById('res').innerText = "Please enter valid numbers!";
+            }
+        }
+    </script>
 </body>
 </html>
+
 
